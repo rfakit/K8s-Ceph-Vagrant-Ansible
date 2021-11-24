@@ -126,7 +126,7 @@ For start deploying the stacks we use the bellow command.
 ```
 Wait Until the Installation will be finished.
 
-## Installation
+## Access Metrics
 
 after Installation is completed It will show you the Nodeport that was asigned to nginx-ingress.
 To access Grafana interface just use any Adress of nodes with the Nodeport shown at last task.
