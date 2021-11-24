@@ -1,0 +1,53 @@
+
+- name: Create k8s pool in Ceph
+  shell: |
+     ceph osd pool create k8s
+     ceph auth add client.kube mon 'allow r' osd 'allow rwx pool=k8s' 
+     ceph osd pool application enable k8s rbd 
+     rbd pool init k8s
+
+  delegate_to: mon0
+  become: yes
+
+- name: capture auth admin key
+  shell: |
+     ceph auth get-key client.admin
+  register: adminout
+  delegate_to: mon0
+  become: yes
+
+- set_fact:
+    admin_auth_key: "{{ adminout.stdout }}"
+
+- name: capture auth kube key
+  shell: |
+     ceph auth get-key client.kube
+  register: kubeout
+  delegate_to: mon0
+  become: yes
+
+- set_fact:
+    kube_auth_key: "{{ kubeout.stdout }}"
+
+
+- name: enable auth_allow_insecure_global_id_reclaim
+  shell: |
+     ceph config set mon auth_allow_insecure_global_id_reclaim true
+  delegate_to: mon0
+  become: yes
+
+- pause:
+    minutes: 1
+
+- name: get ceph status
+  shell: |
+     ceph -s
+  register: ceph_status
+  delegate_to: mon0
+  become: yes
+
+- debug: msg="{{ ceph_status.stdout }}"
+
+- pause:
+    minutes: 1
+

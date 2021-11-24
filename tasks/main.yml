@@ -1,0 +1,8 @@
+---
+- include: prep.yml
+- include: ceph.yml
+- include: ceph-create-pool.yml
+- include: k8s-cluster.yml
+- include: k8s-prom-mariadb.yml
+- include: k8s-ingress.yml
+- include: k8s-grafana.yml

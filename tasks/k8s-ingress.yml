@@ -1,0 +1,21 @@
+- name: Create ingress-nginx for bare metal
+  shell: |
+     kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.5/deploy/static/provider/baremetal/deploy.yaml
+  delegate_to: "{{k8s_vm_prefix}}-1"
+  become: yes
+
+- pause:
+    minutes: 1
+
+- name: get service port nodeport address
+  shell: |
+     kubectl get service -n ingress-nginx ingress-nginx-controller
+  register: ingress_status
+  delegate_to: "{{k8s_vm_prefix}}-1"
+  become: yes
+
+- debug: msg="{{ ingress_status.stdout }}"
+
+
+- pause:
+    minutes: 1

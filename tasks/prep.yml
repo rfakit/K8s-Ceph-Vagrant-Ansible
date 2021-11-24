@@ -1,0 +1,37 @@
+- name: Install python3-pip on Redhat based OS
+  become: true
+  yum:
+    name: python3-pip
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: Install python3-pip on Debian based OS
+  become: true
+  apt:
+    pkg: python3-pip
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Git Clone ceph-ansible repo
+  ansible.builtin.git:
+    repo: 'https://github.com/ceph/ceph-ansible.git'
+    dest: /opt/ceph-ansible
+    version: stable-6.0
+
+- name: Git Clone kubespray repo
+  ansible.builtin.git:
+    repo: 'https://github.com/kubernetes-sigs/kubespray.git'
+    dest: /opt/k8s/kubespray
+
+- name: Copy python req template to /opt
+  template:
+    src: "python-req.txt.j2"
+    dest: "/opt/requirements.txt"
+
+- name: Install Ansible Collection
+  shell: |
+        ansible-galaxy collection install community.general
+
+- name: Install python modules
+  shell: |
+        pip3 install -r /opt/requirements.txt

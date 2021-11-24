@@ -1,0 +1,16 @@
+$num_instances = {{ k8s_total_number }}
+$instance_name_prefix = "{{ k8s_vm_prefix }}"
+$vm_gui = false
+$vm_memory = {{ k8s_vm_memory }}
+$vm_cpus = {{ k8s_cpu_num }}
+$subnet = "{{ k8s_subnet }}"
+$os = "{{ k8s_vagrant_box }}"
+$network_plugin = "{{ k8s_network_plugin }}"
+$multi_networking = false
+$download_run_once = "True"
+$download_force_cache = "True"
+$etcd_instances = {{ k8s_etcd_num }}
+$kube_master_instances = {{ k8s_master_num }}
+$kube_node_instances = {{ k8s_worker_num }}
+$disk_size = "{{ k8s_vm_disk_size }}"
+$inventory = "{{ k8s_inventory_location }}"

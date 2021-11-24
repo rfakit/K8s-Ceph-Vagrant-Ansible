@@ -1,0 +1,92 @@
+---
+################# common vars #################
+inventory_location: "/opt/K8s-Ceph-Vagrant-Ansible/tests/inventory"
+
+
+################## Ceph vars ##################
+docker_enable: "false"
+mon_number: "3"
+osd_number: "3"
+mds_number: "0"
+rgw_number: "0"
+nfs_number: "0"
+grafana_number: "0"
+rbd_mirror_number: "0"
+client_number: "0"
+iscsi_gw_number: "0"
+mgr_number: "1"
+public_subnet: "192.168.120"
+private_subnet: "192.168.110"
+ceph_vm_memory: "1024"
+vagrant_box: "generic/ubuntu2004"
+ceph_origin: "repository"
+ceph_repository: "community"
+ceph_stable_release: "pacific"
+public_network: "192.168.120.0/24"
+cluster_network: "192.168.110.0/24"
+
+
+################## K8S vars ##################
+#SUPPORTED_OS = {
+#  "flatcar-stable"      => {box: "flatcar-stable",             user: "core", box_url: FLATCAR_URL_TEMPLATE % ["stable"]},
+#  "flatcar-beta"        => {box: "flatcar-beta",               user: "core", box_url: FLATCAR_URL_TEMPLATE % ["beta"]},
+#  "flatcar-alpha"       => {box: "flatcar-alpha",              user: "core", box_url: FLATCAR_URL_TEMPLATE % ["alpha"]},
+#  "flatcar-edge"        => {box: "flatcar-edge",               user: "core", box_url: FLATCAR_URL_TEMPLATE % ["edge"]},
+#  "ubuntu1604"          => {box: "generic/ubuntu1604",         user: "vagrant"},
+#  "ubuntu1804"          => {box: "generic/ubuntu1804",         user: "vagrant"},
+#  "ubuntu2004"          => {box: "generic/ubuntu2004",         user: "vagrant"},
+#  "centos"              => {box: "centos/7",                   user: "vagrant"},
+#  "centos-bento"        => {box: "bento/centos-7.6",           user: "vagrant"},
+#  "centos8"             => {box: "centos/8",                   user: "vagrant"},
+#  "centos8-bento"       => {box: "bento/centos-8",             user: "vagrant"},
+#  "fedora33"            => {box: "fedora/33-cloud-base",       user: "vagrant"},
+#  "fedora34"            => {box: "fedora/34-cloud-base",       user: "vagrant"},
+#  "opensuse"            => {box: "bento/opensuse-leap-15.2",   user: "vagrant"},
+#  "opensuse-tumbleweed" => {box: "opensuse/Tumbleweed.x86_64", user: "vagrant"},
+#  "oraclelinux"         => {box: "generic/oracle7",            user: "vagrant"},
+#  "oraclelinux8"        => {box: "generic/oracle8",            user: "vagrant"},
+#  "rhel7"               => {box: "generic/rhel7",              user: "vagrant"},
+#  "rhel8"               => {box: "generic/rhel8",              user: "vagrant"},
+#}
+
+k8s_total_number: "4"
+k8s_etcd_num: "3"
+k8s_master_num: "3"
+k8s_worker_num: "4"
+k8s_vm_memory: "4096"
+k8s_vm_prefix: "k8s"
+k8s_cpu_num: "2"
+k8s_vm_disk_size: "20GB"
+k8s_vagrant_box: "ubuntu2004"
+k8s_subnet: "192.168.120" # ((It should be the same range as public_subnet in ceph vars part )) ## by default it start at 100 within your subnet
+k8s_network_plugin: "cilium"
+k8s_inventory_location: "inventory/prod"
+k8s_ceph_mon_address: "192.168.120.10:6789,192.168.120.11:6789,192.168.120.12:6789" ## by default it start at 10 within your subnet
+helm_enabled: "true"
+registry_enabled: "false"
+metrics_server_enabled: "false"
+local_path_provisioner_enabled: "false"
+local_volume_provisioner_enabled: "false"
+ingress_nginx_enabled: "false"
+cert_manager_enabled: "false"
+
+
+################## Email vars ##################
+
+## email notification
+# gmail instruction
+# 1.Go to your Google Account
+# 2.Select Security
+# 3.Enable 2factor auth
+# 4.Under "Signing in to Google," select App Passwords
+# 5.At the bottom, choose Select app and choose the app you using and then Select device and choose the device you’re using and then Generate.
+# 6.Follow the instructions to enter the App Password. The App Password is the 16-character code in the yellow bar on your device.
+# 7.Done - use following password for auth
+##smtp config
+smtp_host: "smtp.gmail.com"
+smtp_port: "587"
+smtp_username: ""
+smtp_password: ""
+destination_email: ""
+
+

@@ -1,0 +1,4574 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": false,
+        "iconColor": "#e0752d",
+        "limit": 100,
+        "name": "PMM Annotations",
+        "showIn": 0,
+        "tags": [
+          "pmm_annotation"
+        ],
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [
+            "pmm_annotation"
+          ],
+          "type": "tags"
+        },
+        "type": "tags"
+      },
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "#6ed0e0",
+        "limit": 100,
+        "name": "Annotations & Alerts",
+        "showIn": 0,
+        "tags": [],
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Key metrics of galera nodes workload and performance",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "gnetId": 14619,
+  "graphTooltip": 1,
+  "id": 3,
+  "iteration": 1637699809197,
+  "links": [
+    {
+      "icon": "dashboard",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "QAN"
+      ],
+      "targetBlank": false,
+      "title": "Query Analytics",
+      "type": "link",
+      "url": "/graph/dashboard/db/_pmm-query-analytics"
+    },
+    {
+      "asDropdown": true,
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "OS"
+      ],
+      "targetBlank": false,
+      "title": "OS",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "MySQL"
+      ],
+      "targetBlank": false,
+      "title": "MySQL",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "MongoDB"
+      ],
+      "targetBlank": false,
+      "title": "MongoDB",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "PostgreSQL"
+      ],
+      "targetBlank": false,
+      "title": "PostgreSQL",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "HA"
+      ],
+      "targetBlank": false,
+      "title": "HA",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Cloud"
+      ],
+      "targetBlank": false,
+      "title": "Cloud",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "Insight"
+      ],
+      "targetBlank": false,
+      "title": "Insight",
+      "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "PMM"
+      ],
+      "targetBlank": false,
+      "title": "PMM",
+      "type": "dashboards"
+    }
+  ],
+  "liveNow": false,
+  "panels": [
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "Query response time counts (operations) are grouped into three buckets:\n\n* 100ms - 1s\n\n* 1s - 10s\n\n* &gt; 10s",
+      "editable": true,
+      "error": false,
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "height": "",
+      "hiddenSeries": false,
+      "hideTimeOverride": false,
+      "id": 68,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": null,
+        "sortDesc": null,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "More information about Query Response Time plugin in Percona Server",
+          "url": "https://www.percona.com/doc/percona-server/5.7/diagnostics/response_time_distribution.html#QUERY_RESPONSE_TIME"
+        }
+      ],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:40",
+          "alias": "Queries >10s",
+          "color": "#E24D42"
+        },
+        {
+          "$$hashKey": "object:41",
+          "alias": "Queries 1s - 10s",
+          "color": "#EF843C"
+        },
+        {
+          "$$hashKey": "object:42",
+          "alias": "Queries 100ms - 1s",
+          "color": "#EAB839"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum(\n(\n (rate(mysql_info_schema_query_response_time_seconds_bucket{le='1'}[$interval]) - on (instance) rate(mysql_info_schema_query_response_time_seconds_bucket{le='0.1'}[$interval])) or  (irate(mysql_info_schema_query_response_time_seconds_bucket{le='1'}[5m]) - on (instance) irate(mysql_info_schema_query_response_time_seconds_bucket{le='0.1'}[5m]))\n)\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}\n)",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Queries 100ms - 1s - All nodes",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        },
+        {
+          "expr": "sum(\n(\n  (rate(mysql_info_schema_query_response_time_seconds_bucket{le='10'}[$interval])  - on (instance) rate(mysql_info_schema_query_response_time_seconds_bucket{le='1'}[$interval])) or   (irate(mysql_info_schema_query_response_time_seconds_bucket{le='10'}[5m])  - on (instance) irate(mysql_info_schema_query_response_time_seconds_bucket{le='1'}[5m]))\n  )\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}\n)",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Queries 1s - 10s - All nodes",
+          "refId": "B",
+          "step": 300
+        },
+        {
+          "expr": "sum(\n(\n  (rate(mysql_info_schema_query_response_time_seconds_bucket{le='100000'}[$interval])  - on (instance) rate(mysql_info_schema_query_response_time_seconds_bucket{le='10'}[$interval])) or (irate(mysql_info_schema_query_response_time_seconds_bucket{le='100000'}[5m])  - on (instance) irate(mysql_info_schema_query_response_time_seconds_bucket{le='10'}[5m]))\n)* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}\n)",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Queries >10s - All nodes",
+          "refId": "C",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Query Response Time Distribution",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:61",
+          "format": "ops",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:62",
+          "format": "ops",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "The Average Query Response Time graph shows information collected using the Response Time Distribution plugin sourced from [table INFORMATION_SCHEMA. QUERY_RESPONSE_TIME](https://www.percona.com/doc/percona-server/5.7/diagnostics/response_time_distribution.html#QUERY_RESPONSE_TIME). It computes this value across all queries by taking the sum of seconds divided by the count of queries.",
+      "editable": true,
+      "error": false,
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "hiddenSeries": false,
+      "id": 66,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "More information about Query Response Time plugin in Percona Server",
+          "url": "https://www.percona.com/doc/percona-server/5.7/diagnostics/response_time_distribution.html#QUERY_RESPONSE_TIME"
+        }
+      ],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(\nrate(mysql_info_schema_query_response_time_seconds_sum{}[$interval]) / rate(mysql_info_schema_query_response_time_seconds_count{}[$interval]) * 1000 or irate(mysql_info_schema_query_response_time_seconds_sum{}[5m]) / irate(mysql_info_schema_query_response_time_seconds_count{}[5m]) * 1000\n) * on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Time - {{ instance }}",
+          "metric": "",
+          "refId": "B",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "avg((\nrate(mysql_info_schema_query_response_time_seconds_sum{}[$interval]) / rate(mysql_info_schema_query_response_time_seconds_count{}[$interval]) * 1000 or irate(mysql_info_schema_query_response_time_seconds_sum{}[5m]) / irate(mysql_info_schema_query_response_time_seconds_count{}[5m]) * 1000\n)\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"})\n",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Avg Time",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Average Query Response Time",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1309",
+          "format": "ms",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1310",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "**MySQL Questions**\n\nThe number of statements executed by the server. This includes only statements sent to the server by clients and not statements executed within stored programs, unlike the Queries used in the QPS calculation. \n\nThis variable does not count the following commands:\n* ``COM_PING``\n* ``COM_STATISTICS``\n* ``COM_STMT_PREPARE``\n* ``COM_STMT_CLOSE``\n* ``COM_STMT_RESET``",
+      "editable": true,
+      "error": false,
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 0,
+        "y": 10
+      },
+      "hiddenSeries": false,
+      "id": 60,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "MySQL Queries and Questions",
+          "url": "https://www.percona.com/blog/2014/05/29/how-mysql-queries-and-questions-are-measured/"
+        }
+      ],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:1175",
+          "alias": "All",
+          "stack": false
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "( rate(mysql_global_status_questions[$interval]) or irate(mysql_global_status_questions[5m]) ) * \non (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Questions {{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        },
+        {
+          "expr": "sum(\n( rate(mysql_global_status_questions[$interval]) or irate(mysql_global_status_questions[5m]) ) * \non (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}\n)",
+          "interval": "",
+          "legendFormat": "All",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Galera Questions",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:233",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:234",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "**MySQL Slow Queries**\n\nSlow queries are defined as queries being slower than the long_query_time setting. For example, if you have long_query_time set to 3, all queries that take longer than 3 seconds to complete will show on this graph.",
+      "editable": true,
+      "error": false,
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 10
+      },
+      "hiddenSeries": false,
+      "id": 78,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(rate(mysql_global_status_slow_queries{}[$interval]) or irate(mysql_global_status_slow_queries{}[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Slow Queries {{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "MySQL Slow Queries",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:76",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:77",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "**InnoDB Row Operations**\n\nThis graph allows you to see which operations occur and the number of rows affected per operation. A graph like Queries Per Second will give you an idea of queries, but one query could effect millions of rows.",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 12,
+        "y": 19
+      },
+      "hiddenSeries": false,
+      "id": 72,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(\nrate(mysql_global_status_innodb_row_ops_total{operation=~\".*read\"}[$interval]) or irate(mysql_global_status_innodb_row_ops_total{operation=~\".*read\"}[5m])\n)\n\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }} Rows {{ operation }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "InnoDB Row Read Operations",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:430",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:431",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "**Query eff**\n",
+      "editable": true,
+      "error": false,
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 0,
+        "y": 21
+      },
+      "hiddenSeries": false,
+      "id": 84,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum ((rate(mysql_global_status_rows_sent{}[$interval]) or irate(mysql_global_status_rows_sent{}[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"})",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Rows Sent {{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum ((rate(mysql_global_status_rows_read{}[$interval]) or irate(mysql_global_status_rows_read{}[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"})",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Rows Read {{ instance }}",
+          "metric": "",
+          "refId": "B",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum ((rate(mysql_global_status_rows_tmp_read{}[$interval]) or irate(mysql_global_status_rows_read{}[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"})",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Rows Tmp Read {{ instance }}",
+          "metric": "",
+          "refId": "C",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "MySQL Rows Read/Sent",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:76",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:77",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "**InnoDB Row Operations**\n\nThis graph allows you to see which operations occur and the number of rows affected per operation. A graph like Queries Per Second will give you an idea of queries, but one query could effect millions of rows.",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 30
+      },
+      "hiddenSeries": false,
+      "id": 73,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:646",
+          "alias": "/.*updated/",
+          "stack": "A"
+        },
+        {
+          "$$hashKey": "object:653",
+          "alias": "/.*inserted/",
+          "stack": "B",
+          "transform": "negative-Y"
+        },
+        {
+          "$$hashKey": "object:660",
+          "alias": "/.*deleted/",
+          "stack": "C",
+          "transform": "negative-Y"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(\nrate(mysql_global_status_innodb_row_ops_total{operation=~\"updated\"}[$interval]) or irate(mysql_global_status_innodb_row_ops_total{operation=~\"updated\"}[5m])\n)\n\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }} Rows {{ operation }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "InnoDB Row Write (Update) Operations",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:377",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:378",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "**Query eff**\nRows sent / Rows read",
+      "editable": true,
+      "error": false,
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 32
+      },
+      "hiddenSeries": false,
+      "id": 85,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum ((rate(mysql_global_status_rows_sent{}[$interval]) or irate(mysql_global_status_rows_sent{}[5m])) * on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}) / \nsum ((rate(mysql_global_status_rows_read{}[$interval]) or irate(mysql_global_status_rows_read{}[5m]))* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"})\n\n",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Querry eff {{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "MySQL Query Efficiency",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:76",
+          "format": "percentunit",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:77",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "Description: Number of joins which used a full scan of the first table. \n    Select Scan is how many queries caused full table scans, in which all the data in the table had to be read and either discarded or returned.",
+      "editable": true,
+      "error": false,
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 0,
+        "y": 41
+      },
+      "height": "250px",
+      "hiddenSeries": false,
+      "id": 75,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(\nrate(mysql_global_status_select_full_join{}[$interval]) + rate(mysql_global_status_select_full_range_join{}[$interval]) \n or irate(mysql_global_status_select_full_join{}[5m]) + irate(mysql_global_status_select_full_range_join{}[5m])\n)\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "hide": true,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Full Join (+Range J)  {{ instance}}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(\nrate(mysql_global_status_select_scan{}[$interval]) or\nirate(mysql_global_status_select_scan{}[5m])\n)\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Select Scan {{ instance }}",
+          "metric": "",
+          "refId": "E",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "MySQL Select Scan",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:195",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:196",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "**InnoDB Row Operations**\n\nThis graph allows you to see which operations occur and the number of rows affected per operation. A graph like Queries Per Second will give you an idea of queries, but one query could effect millions of rows.",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 42
+      },
+      "hiddenSeries": false,
+      "id": 86,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:646",
+          "alias": "/.*updated/",
+          "stack": "A"
+        },
+        {
+          "$$hashKey": "object:653",
+          "alias": "/.*inserted/",
+          "stack": "B"
+        },
+        {
+          "$$hashKey": "object:660",
+          "alias": "/.*deleted/",
+          "stack": "C",
+          "transform": "negative-Y"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(\nrate(mysql_global_status_innodb_row_ops_total{operation!~\".*read|updated\"}[$interval]) or irate(mysql_global_status_innodb_row_ops_total{operation!~\".*read|updated\"}[5m])\n)\n\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }} Rows {{ operation }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "InnoDB Row Write (Insert/Delete) Operations",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:377",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:378",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "Description: Number of joins which did not use an index. If not zero, you may need to check table indexes. \n    Select Full Join is the number of joins that are not joined on an index, this is usually a huge performance hit.",
+      "editable": true,
+      "error": false,
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 52
+      },
+      "height": "250px",
+      "hiddenSeries": false,
+      "id": 76,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(\nrate(mysql_global_status_select_full_join{}[$interval]) + rate(mysql_global_status_select_full_range_join{}[$interval]) \n or irate(mysql_global_status_select_full_join{}[5m]) + irate(mysql_global_status_select_full_range_join{}[5m])\n)\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Full Join (+Range J)  {{ instance}}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "MySQL Select Full Join",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:195",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:196",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "**InnoDB I/O**\n\n_Data Writes_ - The total number of InnoDB data writes.\\\n_Data Reads_ - The total number of InnoDB data reads (OS file reads).\\\n_Log Writes_ - The number of physical writes to the InnoDB redo log file.\\\n_Data Fsyncs_ - The number of fsync() operations. The frequency of fsync() calls is influenced by the setting of the `innodb_flush_method` configuration option.",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 12,
+        "y": 52
+      },
+      "hiddenSeries": false,
+      "id": 70,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:1945",
+          "alias": "/Writes/",
+          "transform": "negative-Y"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(rate(mysql_global_status_innodb_data_reads{}[$interval]) or irate(mysql_global_status_innodb_data_reads{}[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }} - Data Reads",
+          "metric": "",
+          "refId": "C",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(\n(rate(mysql_global_status_innodb_data_writes{}[$interval]) or irate(mysql_global_status_innodb_data_writes{}[5m])  ) + \n(rate(mysql_global_status_innodb_log_writes{}[$interval]) or irate(mysql_global_status_innodb_log_writes{}[5m]))\n)\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "hide": true,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }} - Data+Log Writes",
+          "metric": "",
+          "refId": "D",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_global_status_innodb_data_fsyncs{instance=~\"$host\"}[$interval]) or irate(mysql_global_status_innodb_data_fsyncs{instance=~\"$host\"}[5m])",
+          "format": "time_series",
+          "hide": true,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Data Fsyncs",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_global_status_innodb_os_log_fsyncs{instance=~\"$host\"}[$interval]) or irate(mysql_global_status_innodb_os_log_fsyncs{instance=~\"$host\"}[5m])",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Log Fsyncs",
+          "metric": "",
+          "refId": "B",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(rate(mysql_global_status_innodb_log_writes{}[$interval]) or irate(mysql_global_status_innodb_log_writes{}[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "hide": true,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}  - Log Writes",
+          "metric": "",
+          "refId": "E",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Galera InnoDB I/O - Reads",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1917",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1918",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Avg Lock Time": "semi-dark-red",
+        "Waits": "dark-blue"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": " Total time in milliseconds spent getting InnoDB row locks. / Number of times InnoDB had to wait before getting a row lock.",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 60
+      },
+      "hiddenSeries": false,
+      "id": 90,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:444",
+          "alias": "/^Row Lock Waits.*/",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "(rate(mysql_global_status_innodb_row_lock_time{}[$interval])/rate(mysql_global_status_innodb_row_lock_waits{}[$interval]) * on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}) or (rate(mysql_global_status_innodb_row_lock_time{}[5m])/rate(mysql_global_status_innodb_row_lock_waits{}[5m]))* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}\n",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Avg Row Lock Time - {{ instance }}",
+          "refId": "A"
+        },
+        {
+          "expr": "(rate(mysql_global_status_innodb_row_lock_time{}[$interval])* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}) or (irate(mysql_global_status_innodb_row_lock_time{}[5m])* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"})",
+          "hide": true,
+          "interval": "",
+          "legendFormat": "Sum Lock Time -  {{ instance }}",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(mysql_global_status_innodb_row_lock_waits{}[$interval])* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"} or irate(mysql_global_status_innodb_row_lock_waits{}[5m])* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "hide": true,
+          "interval": "",
+          "legendFormat": "Row Lock Waits - {{ instance }}",
+          "refId": "C"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "InnoDB Waits",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:175",
+          "format": "ms",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:176",
+          "decimals": 2,
+          "format": "wps",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "**InnoDB I/O**\n\n_Data Writes_ - The total number of InnoDB data writes.\\\n_Data Reads_ - The total number of InnoDB data reads (OS file reads).\\\n_Log Writes_ - The number of physical writes to the InnoDB redo log file.\\\n_Data Fsyncs_ - The number of fsync() operations. The frequency of fsync() calls is influenced by the setting of the `innodb_flush_method` configuration option.",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 12,
+        "y": 63
+      },
+      "hiddenSeries": false,
+      "id": 102,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:1945",
+          "alias": "/Writes/"
+        },
+        {
+          "$$hashKey": "object:564",
+          "alias": "/.*capacity.*/",
+          "fill": 0,
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(rate(mysql_global_status_innodb_data_reads{}[$interval]) or irate(mysql_global_status_innodb_data_reads{}[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "hide": true,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }} - Data Reads",
+          "metric": "",
+          "refId": "C",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(\n(rate(mysql_global_status_innodb_data_writes{}[$interval]) or irate(mysql_global_status_innodb_data_writes{}[5m])  ) \n)\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }} - Data Writes",
+          "metric": "",
+          "refId": "D",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_global_status_innodb_data_fsyncs{instance=~\"$host\"}[$interval]) or irate(mysql_global_status_innodb_data_fsyncs{instance=~\"$host\"}[5m])",
+          "format": "time_series",
+          "hide": true,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Data Fsyncs",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_global_status_innodb_os_log_fsyncs{instance=~\"$host\"}[$interval]) or irate(mysql_global_status_innodb_os_log_fsyncs{instance=~\"$host\"}[5m])",
+          "format": "time_series",
+          "hide": true,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Log Fsyncs",
+          "metric": "",
+          "refId": "B",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(rate(mysql_global_status_innodb_log_writes{}[$interval]) or irate(mysql_global_status_innodb_log_writes{}[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "hide": true,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}  - Log Writes",
+          "metric": "",
+          "refId": "E",
+          "step": 300
+        },
+        {
+          "expr": "max(mysql_global_variables_innodb_io_capacity\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}\n)",
+          "hide": false,
+          "interval": "$interval",
+          "legendFormat": "io_capacity (largest of nodes)",
+          "refId": "F"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Galera InnoDB I/O - Writes",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1917",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1918",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "**InnoDB I/O**\n\n_Data Writes_ - The total number of InnoDB data writes.\\\n_Data Reads_ - The total number of InnoDB data reads (OS file reads).\\\n_Log Writes_ - The number of physical writes to the InnoDB redo log file.\\\n_Data Fsyncs_ - The number of fsync() operations. The frequency of fsync() calls is influenced by the setting of the `innodb_flush_method` configuration option.",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 0,
+        "y": 68
+      },
+      "hiddenSeries": false,
+      "id": 91,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:1945",
+          "alias": "/Writ|Creat/",
+          "transform": "negative-Y"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(rate(mysql_global_status_innodb_pages_read{}[$interval]) or irate(mysql_global_status_innodb_pages_read{}[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }} - Pages Read",
+          "metric": "",
+          "refId": "C",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(rate(mysql_global_status_innodb_pages_written{}[$interval]) or irate(mysql_global_status_innodb_pages_written{}[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }} - Pages Written",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum ( (rate(mysql_global_status_innodb_pages_created{}[$interval]) or irate(mysql_global_status_innodb_pages_created{}[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"})",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "All - Pages Created",
+          "metric": "",
+          "refId": "B",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Galera InnoDB Page I/O",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1917",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1918",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "**InnoDB I/O**\n\n_Data Writes_ - The total number of InnoDB data writes.\\\n_Data Reads_ - The total number of InnoDB data reads (OS file reads).\\\n_Log Writes_ - The number of physical writes to the InnoDB redo log file.\\\n_Data Fsyncs_ - The number of fsync() operations. The frequency of fsync() calls is influenced by the setting of the `innodb_flush_method` configuration option.",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 12,
+        "y": 74
+      },
+      "hiddenSeries": false,
+      "id": 103,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:1945",
+          "alias": "/Writes/",
+          "transform": "negative-Y"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(rate(mysql_global_status_innodb_data_reads{}[$interval]) or irate(mysql_global_status_innodb_data_reads{}[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }} - Data Reads",
+          "metric": "",
+          "refId": "C",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(\n(rate(mysql_global_status_innodb_data_writes{}[$interval]) or irate(mysql_global_status_innodb_data_writes{}[5m])  ) + \n(rate(mysql_global_status_innodb_log_writes{}[$interval]) or irate(mysql_global_status_innodb_log_writes{}[5m]))\n)\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }} - Data+Log Writes",
+          "metric": "",
+          "refId": "D",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_global_status_innodb_data_fsyncs{instance=~\"$host\"}[$interval]) or irate(mysql_global_status_innodb_data_fsyncs{instance=~\"$host\"}[5m])",
+          "format": "time_series",
+          "hide": true,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Data Fsyncs",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_global_status_innodb_os_log_fsyncs{instance=~\"$host\"}[$interval]) or irate(mysql_global_status_innodb_os_log_fsyncs{instance=~\"$host\"}[5m])",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Log Fsyncs",
+          "metric": "",
+          "refId": "B",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(rate(mysql_global_status_innodb_log_writes{}[$interval]) or irate(mysql_global_status_innodb_log_writes{}[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "hide": true,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}  - Log Writes",
+          "metric": "",
+          "refId": "E",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Galera InnoDB I/O",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1917",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1918",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Adaptive flushing LWM": "semi-dark-orange",
+        "Log size": "super-light-blue",
+        "Max Checkpoint Age": "#BF1B00",
+        "Max Checkpoint Age (async)": "semi-dark-green",
+        "Max Checkpoint Age (sync)": "dark-yellow",
+        "Uncheckpointed": "dark-purple",
+        "Uncheckpointed Bytes": "#E0752D"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "**InnoDB Checkpoint Age**\n\nThe maximum checkpoint age is determined by the total length of all transaction log files (`innodb_log_file_size`).\n\nWhen the checkpoint age reaches the maximum checkpoint age, blocks are flushed syncronously. The rules of the thumb is to keep one hour of traffic in those logs and let the checkpointing perform its work as smooth as possible. If you don't do this, InnoDB will do synchronous flushing at the worst possible time, ie when you are busiest.",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 79
+      },
+      "hiddenSeries": false,
+      "id": 99,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:226",
+          "alias": "/Max Checkpoint.*/",
+          "fill": 0
+        },
+        {
+          "$$hashKey": "object:253",
+          "alias": "/.*Log size.*/",
+          "fill": 0
+        },
+        {
+          "$$hashKey": "object:260",
+          "alias": "/.Adaptive flushing LWM.*/",
+          "fill": 0
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(max_over_time(mysql_info_schema_innodb_metrics_recovery_log_lsn_checkpoint_age_total[$interval]) or\nmax_over_time(mysql_info_schema_innodb_metrics_recovery_log_lsn_checkpoint_age_total[5m])) \n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Uncheckpointed {{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max_over_time(mysql_info_schema_innodb_metrics_recovery_log_max_modified_age_async{instance=~\"$host\"}[$interval]) or\nmax_over_time(mysql_info_schema_innodb_metrics_recovery_log_max_modified_age_async{instance=~\"$host\"}[5m])",
+          "format": "time_series",
+          "hide": true,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Max Checkpoint Age (async)",
+          "metric": "",
+          "refId": "B",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max_over_time(mysql_info_schema_innodb_metrics_recovery_log_max_modified_age_sync{instance=~\"$host\"}[$interval]) or\nmax_over_time(mysql_info_schema_innodb_metrics_recovery_log_max_modified_age_sync{instance=~\"$host\"}[5m])",
+          "format": "time_series",
+          "hide": true,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Max Checkpoint Age (sync)",
+          "metric": "",
+          "refId": "C",
+          "step": 300
+        },
+        {
+          "expr": "max(mysql_global_variables_innodb_log_files_in_group{} * mysql_global_variables_innodb_log_file_size{} * on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"})",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Log size (max)",
+          "refId": "D"
+        },
+        {
+          "expr": "min(mysql_global_variables_innodb_adaptive_flushing_lwm/100 * mysql_global_variables_innodb_adaptive_flushing * mysql_global_variables_innodb_log_files_in_group * mysql_global_variables_innodb_log_file_size\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"})",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Adaptive flushing LWM min",
+          "refId": "E"
+        },
+        {
+          "expr": "max(mysql_global_variables_innodb_adaptive_flushing_lwm/100 * mysql_global_variables_innodb_adaptive_flushing * mysql_global_variables_innodb_log_files_in_group * mysql_global_variables_innodb_log_file_size\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"})",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Adaptive flushing LWM max",
+          "refId": "F"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "InnoDB Checkpoint Age (LSN diff) (innodb metrics)",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:241",
+          "decimals": 2,
+          "format": "bytes",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:242",
+          "decimals": null,
+          "format": "bytes",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Data Read Bytes": "semi-dark-green",
+        "Log Writen Bytes": "semi-dark-red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 85
+      },
+      "hiddenSeries": false,
+      "id": 101,
+      "interval": "",
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:512",
+          "alias": "/.*Writen.*/",
+          "transform": "negative-Y"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(rate(mysql_global_status_innodb_os_log_written[$interval]) or irate(mysql_global_status_innodb_os_log_written[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "hide": true,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Log Writen Bytes {{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(rate(mysql_global_status_innodb_data_written[$interval]) or irate(mysql_global_status_innodb_data_written[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "hide": true,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Data Writen Bytes {{ instance }}",
+          "metric": "",
+          "refId": "B",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(rate(mysql_global_status_innodb_data_read[$interval]) or irate(mysql_global_status_innodb_data_read[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }} - Data Read Bytes ",
+          "metric": "",
+          "refId": "C",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "InnoDB Throughput - Read Bytes",
+      "tooltip": {
+        "msResolution": true,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:159",
+          "format": "Bps",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:160",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 6,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 91
+      },
+      "hiddenSeries": false,
+      "id": 97,
+      "interval": "",
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:502",
+          "alias": ".*Bytes",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "mysql_global_status_innodb_buffer_pool_bytes_data\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "hide": true,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance }} Data",
+          "metric": "",
+          "refId": "B",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "mysql_global_status_innodb_buffer_pool_bytes_dirty\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance }} Dirty",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "InnoDB Buffer Pool Dirty",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:474",
+          "format": "bytes",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:475",
+          "format": "short",
+          "label": "Bytes",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "Data Read Bytes": "semi-dark-green",
+        "Log Writen Bytes": "semi-dark-red"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 10,
+        "w": 12,
+        "x": 12,
+        "y": 95
+      },
+      "hiddenSeries": false,
+      "id": 104,
+      "interval": "",
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:512",
+          "alias": "/.*Writen.*/",
+          "transform": "negative-Y"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "min(\n(rate(mysql_global_status_innodb_os_log_written[$interval]) or irate(mysql_global_status_innodb_os_log_written[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}\n)",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "min of nodes - Log Writen Bytes ",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(rate(mysql_global_status_innodb_data_written[$interval]) or irate(mysql_global_status_innodb_data_written[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }} - Data Writen Bytes",
+          "metric": "",
+          "refId": "B",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(rate(mysql_global_status_innodb_data_read[$interval]) or irate(mysql_global_status_innodb_data_read[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "hide": true,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }} - Data Read Bytes",
+          "metric": "",
+          "refId": "C",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "max(\n(rate(mysql_global_status_innodb_os_log_written[$interval]) or irate(mysql_global_status_innodb_os_log_written[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}\n)",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "max of nodes - Log Writen Bytes ",
+          "metric": "",
+          "refId": "D",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "InnoDB Throughput - Written Bytes",
+      "tooltip": {
+        "msResolution": true,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:159",
+          "format": "Bps",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:160",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 6,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 99
+      },
+      "hiddenSeries": false,
+      "id": 93,
+      "interval": "",
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:502",
+          "alias": ".*Bytes",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "mysql_global_status_buffer_pool_pages{state=~\"free\"} \n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ state }} {{instance }}",
+          "metric": "",
+          "refId": "B",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "InnoDB Buffer Pool Pages (free)",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:474",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:475",
+          "format": "short",
+          "label": "Bytes",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "**InnoDB I/O**\n\n_Data Writes_ - The total number of InnoDB data writes.\\\n_Data Reads_ - The total number of InnoDB data reads (OS file reads).\\\n_Log Writes_ - The number of physical writes to the InnoDB redo log file.\\\n_Data Fsyncs_ - The number of fsync() operations. The frequency of fsync() calls is influenced by the setting of the `innodb_flush_method` configuration option.",
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 11,
+        "w": 12,
+        "x": 12,
+        "y": 105
+      },
+      "hiddenSeries": false,
+      "id": 88,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:1945",
+          "alias": "/Log/",
+          "transform": "negative-Y"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(rate(mysql_global_status_innodb_data_fsyncs{}[$interval]) or irate(mysql_global_status_innodb_data_fsyncs{}[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Data Fsyncs - {{instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(rate(mysql_global_status_innodb_os_log_fsyncs{}[$interval]) or irate(mysql_global_status_innodb_os_log_fsyncs{}[5m])) \n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Log Fsyncs {{ instance }}",
+          "metric": "",
+          "refId": "B",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "(rate(mysql_global_status_innodb_log_writes{}[$interval]) or irate(mysql_global_status_innodb_log_writes{}[5m]))\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "hide": true,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Log Writes - {{ instance }} ",
+          "metric": "",
+          "refId": "E",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Galera InnoDB Fsyncs Data/Log (+/-)",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1917",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1918",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 106
+      },
+      "hiddenSeries": false,
+      "id": 95,
+      "interval": "",
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:502",
+          "alias": ".*Bytes",
+          "yaxis": 2
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "mysql_global_status_innodb_buffer_pool_bytes_data\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance }} Data",
+          "metric": "",
+          "refId": "B",
+          "step": 300
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "mysql_global_status_innodb_buffer_pool_bytes_dirty\n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "hide": true,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance }} Dirty",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "InnoDB Buffer Pool Data",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:474",
+          "format": "bytes",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:475",
+          "format": "short",
+          "label": "Bytes",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "**Top Command Counters**\n\nThe Com_{{xxx}} statement counter variables indicate the number of times each xxx statement has been executed. There is one status variable for each type of statement. For example, Com_delete and Com_update count [``DELETE``](https://dev.mysql.com/doc/refman/5.7/en/delete.html) and [``UPDATE``](https://dev.mysql.com/doc/refman/5.7/en/update.html) statements, respectively. Com_delete_multi and Com_update_multi are similar but apply to [``DELETE``](https://dev.mysql.com/doc/refman/5.7/en/delete.html) and [``UPDATE``](https://dev.mysql.com/doc/refman/5.7/en/update.html) statements that use multiple-table syntax.",
+      "editable": true,
+      "error": false,
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 116
+      },
+      "hiddenSeries": false,
+      "id": 80,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": true,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [
+        {
+          "title": "Server Status Variables (Com_xxx)",
+          "url": "https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Com_xxx"
+        }
+      ],
+      "nullPointMode": "null as zero",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "topk (5,\nsum by (command) (\n(\nrate(mysql_global_status_commands_total{}[$interval])>0 or irate(mysql_global_status_commands_total{}[5m])>0\n)* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}\n)\n)\n",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Com_{{ command }} {{ instance}}",
+          "metric": "",
+          "refId": "B",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Top Command Counters",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:129",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:130",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "**Top Command Counters Hourly**\n\nThe Com_{{xxx}} statement counter variables indicate the number of times each xxx statement has been executed. There is one status variable for each type of statement. For example, Com_delete and Com_update count [``DELETE``](https://dev.mysql.com/doc/refman/5.7/en/delete.html) and [``UPDATE``](https://dev.mysql.com/doc/refman/5.7/en/update.html) statements, respectively. Com_delete_multi and Com_update_multi are similar but apply to [``DELETE``](https://dev.mysql.com/doc/refman/5.7/en/delete.html) and [``UPDATE``](https://dev.mysql.com/doc/refman/5.7/en/update.html) statements that use multiple-table syntax.",
+      "editable": true,
+      "error": false,
+      "fill": 6,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 123
+      },
+      "hiddenSeries": false,
+      "id": 83,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": true,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 2,
+      "links": [
+        {
+          "title": "Server Status Variables (Com_xxx)",
+          "url": "https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Com_xxx"
+        }
+      ],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "topk(5,\n  sum by (command) (\n    increase (mysql_global_status_commands_total{}[$incr_interval])\n    * on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}\n  )>0\n  )\n\n",
+          "format": "time_series",
+          "interval": "$incr_interval",
+          "intervalFactor": 1,
+          "legendFormat": "Com_{{ command }} {{ instance }}",
+          "metric": "",
+          "refId": "B",
+          "step": 3600
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": "24h",
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Top Command Counters (increase per $incr_interval)",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:229",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:230",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 130
+      },
+      "hiddenSeries": false,
+      "id": 106,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_global_status_handlers_total{handler=~\"commit\"}[$interval]) \n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ handler }} {{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "MySQL Transaction Handlers (commit)",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:305",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:306",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 130
+      },
+      "hiddenSeries": false,
+      "id": 108,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "increase(mysql_global_status_handlers_total{handler=~\"commit\"}[$incr_interval]) \n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "interval": "$incr_interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ handler }} {{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "MySQL Transaction Handlers (commit) (incr $incr_interval)",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:305",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:306",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 137
+      },
+      "hiddenSeries": false,
+      "id": 107,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "rate(mysql_global_status_handlers_total{handler=~\"rollback\"}[$interval]) \n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ handler }} {{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "MySQL Transaction Handlers (rollback)",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:305",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:306",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 137
+      },
+      "hiddenSeries": false,
+      "id": 109,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "increase(mysql_global_status_handlers_total{handler=~\"rollback\"}[$incr_interval]) \n* on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "interval": "$incr_interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ handler }} {{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "MySQL Transaction Handlers (rollback) (incr $incr_interval)",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:305",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:306",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": null,
+      "editable": true,
+      "error": false,
+      "fill": 2,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 144
+      },
+      "hiddenSeries": false,
+      "id": 52,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "clamp_max((rate(mysql_global_status_wsrep_flow_control_paused_ns[$interval]) or irate(mysql_global_status_wsrep_flow_control_paused_ns[5m]))/1000000000 * on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"},1)",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{ instance }}",
+          "metric": "",
+          "refId": "A",
+          "step": 300
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Flow Control Paused Time",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "cumulative"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:288",
+          "decimals": 0,
+          "format": "percentunit",
+          "logBase": 1,
+          "max": 1,
+          "min": 0,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:289",
+          "format": "short",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "decimals": 2,
+      "description": "**MySQL Network Traffic**\n\nHere we can see how much network traffic is generated by MySQL. Outbound is network traffic sent from MySQL and Inbound is network traffic MySQL has received.",
+      "editable": true,
+      "error": false,
+      "fill": 6,
+      "fillGradient": 0,
+      "grid": {},
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 144
+      },
+      "hiddenSeries": false,
+      "id": 64,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:935",
+          "alias": "/.*Outbound.*/",
+          "transform": "negative-Y"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(\n( rate(mysql_global_status_bytes_received{}[$interval]) or irate(mysql_global_status_bytes_received{}[5m]) )\n * \non (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}\n)",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Inbound",
+          "metric": "",
+          "refId": "A",
+          "step": 20
+        },
+        {
+          "calculatedInterval": "2m",
+          "datasourceErrors": {},
+          "errors": {},
+          "expr": "sum(\n( rate(mysql_global_status_bytes_sent{}[$interval]) or irate(mysql_global_status_bytes_sent{}[5m]) )\n * \non (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}\n)",
+          "format": "time_series",
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "Outbound",
+          "metric": "",
+          "refId": "B",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Galera Sql Network Traffic",
+      "tooltip": {
+        "msResolution": false,
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:801",
+          "format": "Bps",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:802",
+          "format": "none",
+          "logBase": 1,
+          "max": null,
+          "min": 0,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 152
+      },
+      "hiddenSeries": false,
+      "id": 57,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 2,
+      "links": [],
+      "maxPerRow": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "8.2.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "avg_over_time(mysql_galera_evs_repl_latency_avg_seconds[$interval]) * on (instance) group_left mysql_galera_variables_info{wsrep_cluster_name=\"$cluster\"}",
+          "format": "time_series",
+          "hide": false,
+          "interval": "$interval",
+          "intervalFactor": 1,
+          "legendFormat": "{{instance}} - Latency Average",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Average Galera Replication Latency",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:541",
+          "format": "s",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:542",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "refresh": "1m",
+  "schemaVersion": 32,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allFormat": "glob",
+        "auto": true,
+        "auto_count": 200,
+        "auto_min": "1s",
+        "current": {
+          "selected": false,
+          "text": "5m",
+          "value": "5m"
+        },
+        "datasource": "Prometheus",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": "Interval",
+        "multi": false,
+        "multiFormat": "glob",
+        "name": "interval",
+        "options": [
+          {
+            "selected": false,
+            "text": "auto",
+            "value": "$__auto_interval_interval"
+          },
+          {
+            "selected": false,
+            "text": "5s",
+            "value": "5s"
+          },
+          {
+            "selected": false,
+            "text": "1m",
+            "value": "1m"
+          },
+          {
+            "selected": false,
+            "text": "2m",
+            "value": "2m"
+          },
+          {
+            "selected": true,
+            "text": "5m",
+            "value": "5m"
+          },
+          {
+            "selected": false,
+            "text": "30m",
+            "value": "30m"
+          },
+          {
+            "selected": false,
+            "text": "1h",
+            "value": "1h"
+          },
+          {
+            "selected": false,
+            "text": "6h",
+            "value": "6h"
+          },
+          {
+            "selected": false,
+            "text": "1d",
+            "value": "1d"
+          }
+        ],
+        "query": "5s,1m,2m,5m,30m,1h,6h,1d",
+        "queryValue": "",
+        "refresh": 2,
+        "skipUrlSync": false,
+        "type": "interval"
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": "prometheus",
+        "definition": "",
+        "description": null,
+        "error": null,
+        "hide": 2,
+        "includeAll": true,
+        "label": "Instance",
+        "multi": true,
+        "name": "instances",
+        "options": [],
+        "query": {
+          "query": "label_values(mysql_global_status_wsrep_local_state, instance)",
+          "refId": "Prometheus-instances-Variable-Query"
+        },
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allFormat": "glob",
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "galera",
+          "value": "galera"
+        },
+        "datasource": "prometheus",
+        "definition": "",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": "Cluster",
+        "multi": false,
+        "multiFormat": "regex values",
+        "name": "cluster",
+        "options": [],
+        "query": {
+          "query": "label_values(mysql_galera_variables_info{instance=~\"$instances\"}, wsrep_cluster_name)",
+          "refId": "Prometheus-cluster-Variable-Query"
+        },
+        "refresh": 2,
+        "refresh_on_load": false,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": null,
+        "tagsQuery": null,
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "auto": false,
+        "auto_count": 30,
+        "auto_min": "10s",
+        "current": {
+          "selected": false,
+          "text": "30m",
+          "value": "30m"
+        },
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "label": "Increase Period",
+        "name": "incr_interval",
+        "options": [
+          {
+            "selected": false,
+            "text": "1m",
+            "value": "1m"
+          },
+          {
+            "selected": false,
+            "text": "10m",
+            "value": "10m"
+          },
+          {
+            "selected": true,
+            "text": "30m",
+            "value": "30m"
+          },
+          {
+            "selected": false,
+            "text": "1h",
+            "value": "1h"
+          },
+          {
+            "selected": false,
+            "text": "2h",
+            "value": "2h"
+          },
+          {
+            "selected": false,
+            "text": "3h",
+            "value": "3h"
+          },
+          {
+            "selected": false,
+            "text": "4h",
+            "value": "4h"
+          },
+          {
+            "selected": false,
+            "text": "6h",
+            "value": "6h"
+          },
+          {
+            "selected": false,
+            "text": "12h",
+            "value": "12h"
+          },
+          {
+            "selected": false,
+            "text": "1d",
+            "value": "1d"
+          }
+        ],
+        "query": "1m,10m,30m,1h,2h,3h,4h,6h,12h,1d",
+        "queryValue": "",
+        "refresh": 2,
+        "skipUrlSync": false,
+        "type": "interval"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-12h",
+    "to": "now"
+  },
+  "timepicker": {
+    "collapse": false,
+    "enable": true,
+    "hidden": false,
+    "notice": false,
+    "now": true,
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "status": "Stable",
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ],
+    "type": "timepicker"
+  },
+  "timezone": "browser",
+  "title": "Galera WorkLoad Overview",
+  "uid": "MEn6b7TGk",
+  "version": 1
+}

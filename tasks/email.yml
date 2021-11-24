@@ -1,0 +1,11 @@
+- name: Send notification
+  community.general.mail:
+    host: "{{ smtp_host }}"
+    port: "{{ smtp_port }}"
+    username: "{{ smtp_username }}"
+    password: "{{ smtp_password }}"
+    secure: starttls
+    to: "{{ destination_email }}"
+    subject: Ansible-report host {{ ansible_hostname }}
+    body: "{{ message }}"
+  delegate_to: localhost

@@ -1,0 +1,52 @@
+- name: Create inv dir for deploying k8s
+  file:
+    path: "/opt/k8s/kubespray/{{ k8s_inventory_location }}"
+    state: directory
+    mode: '0755'
+
+- name: Create vagrant dir for deploying k8s
+  file:
+    path: "/opt/k8s/kubespray/vagrant"
+    state: directory
+    mode: '0755'
+
+- name: Copy group_vars to k8s_inv_location
+  copy:
+    src: "group_vars"
+    dest: "/opt/k8s/kubespray/{{ k8s_inventory_location }}/"
+
+- name: Copy K8s Config Vagrant to proper location 
+  template:
+    src: "k8s-config.j2"
+    dest: "/opt/k8s/kubespray/vagrant/config.rb"
+
+- name: Copy K8s Config addons to proper location 
+  template:
+    src: "addons.yml.j2"
+    dest: "/opt/k8s/kubespray/{{ k8s_inventory_location }}/group_vars/k8s_cluster/addons.yml"
+
+- block:
+    - name:  Run Vagrant Up command into k8s cluster
+      shell: |
+            cd /opt/k8s/kubespray/ && vagrant up --provision
+      async: 1800
+      poll: 10
+
+  rescue:
+    - include: "email.yml"
+      vars:
+         message: "You have encountered an error in Creating vms for K8s Cluster"
+
+
+- set_fact:
+    hosts_k8s_content: "{{ lookup('file', '/opt/k8s/kubespray/.vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory') }}"
+
+- blockinfile:
+    dest: '{{ inventory_location }}'
+    content: '{{ hosts_k8s_content }}'
+    state: present
+
+- meta: refresh_inventory
+
+- pause:
+    minutes: 5

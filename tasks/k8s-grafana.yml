@@ -1,0 +1,67 @@
+- name: Copy datasource.yaml config to k8s first node
+  copy:
+    src: "datasource.yaml"
+    dest: "/root/datasource.yaml"
+  delegate_to: "{{k8s_vm_prefix}}-1"
+  become: yes
+
+- name: Copy Grafana config to k8s first node
+  copy:
+    src: "value-grafana.yaml"
+    dest: "/root/value-grafana.yaml"
+  delegate_to: "{{k8s_vm_prefix}}-1"
+  become: yes
+
+
+- name: Copy Grafana dashboard-1 config to k8s first node
+  copy:
+    src: "dashboard-1.json"
+    dest: "/root/dashboard-1.json"
+  delegate_to: "{{k8s_vm_prefix}}-1"
+  become: yes
+  
+
+- name: Copy Grafana dashboard-2 config to k8s first node
+  copy:
+    src: "dashboard-2.json"
+    dest: "/root/dashboard-2.json"
+  delegate_to: "{{k8s_vm_prefix}}-1"
+  become: yes
+
+- name: Create datasource Secret 
+  shell: |
+     kubectl create secret generic datasource-secret --from-file=/root/datasource.yaml
+  delegate_to: "{{k8s_vm_prefix}}-1"
+  become: yes
+
+- name: Create dashboard-1 configmap
+  shell: |
+     kubectl create configmap dashboard-1 --from-file=/root/dashboard-1.json
+  delegate_to: "{{k8s_vm_prefix}}-1"
+  become: yes
+
+- name: Create dashboard-2 configmap
+  shell: |
+     kubectl create configmap dashboard-2 --from-file=/root/dashboard-2.json
+  delegate_to: "{{k8s_vm_prefix}}-1"
+  become: yes
+
+  
+
+- name: Install Grafana helm
+  shell: |
+     helm install grafana bitnami/grafana  -f /root/value-grafana.yaml
+  delegate_to: "{{k8s_vm_prefix}}-1"
+  become: yes
+  
+- name: get service port nodeport address
+  shell: |
+     kubectl get service -n ingress-nginx ingress-nginx-controller
+  register: ingress_status
+  delegate_to: "{{k8s_vm_prefix}}-1"
+  become: yes
+
+- debug: msg="{{ ingress_status.stdout }}"
+  
+- pause:
+    minutes: 5

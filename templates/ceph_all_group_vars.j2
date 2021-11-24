@@ -1,0 +1,12 @@
+---
+ceph_origin: {{ ceph_origin }}
+ceph_repository: {{ ceph_repository }}
+ceph_stable_release: {{ ceph_stable_release }}
+public_network: "{{ public_network }}"
+cluster_network: "{{ cluster_network }}"
+monitor_interface: eth1
+devices:
+  - '/dev/sda'
+  - '/dev/sdb'
+dashboard_enabled: False
+ansible_python_interpreter: /usr/bin/python3

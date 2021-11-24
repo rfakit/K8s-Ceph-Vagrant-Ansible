@@ -1,0 +1,47 @@
+- name: alter Ceph Storage problem when create PVC
+  shell: |
+     grep RemoveSelfLink /etc/kubernetes/manifests/kube-apiserver.yaml || sed 's/- kube-apiserver/& \n\ \ \ \ - --feature-gates=RemoveSelfLink=false/' /etc/kubernetes/manifests/kube-apiserver.yaml >  /root/kube-apiserver.yaml
+     cat /root/kube-apiserver.yaml >  /etc/kubernetes/manifests/kube-apiserver.yaml
+  become: yes
+  delegate_to: "{{ item }}"
+  delegate_facts: true
+  loop: "{{ groups['kube_control_plane'] }}"
+
+- name: Copy prometheus config to k8s first node
+  copy:
+    src: "value-prom.yaml"
+    dest: "/root/value-prom.yaml"
+  delegate_to: "{{k8s_vm_prefix}}-1"
+  become: yes
+
+- name: Copy mariadb config to k8s first node
+  copy:
+    src: "value-mariadb.yaml"
+    dest: "/root/value-mariadb.yaml"
+  delegate_to: "{{k8s_vm_prefix}}-1"
+  become: yes
+
+- name: Add Bitnami Repo and update
+  shell: |
+     helm repo add bitnami https://charts.bitnami.com/bitnami 
+     helm repo update
+  delegate_to: "{{k8s_vm_prefix}}-1"
+  become: yes
+
+- name: Install Prometheus helm
+  shell: |
+     helm install prometheus bitnami/kube-prometheus -f /root/value-prom.yaml || true
+  delegate_to: "{{k8s_vm_prefix}}-1"
+  become: yes
+
+- pause:
+    minutes: 5
+
+- name: Install Mariadb helm
+  shell: |
+     helm install galera bitnami/mariadb-galera --set metrics.serviceMonitor.selector="app.kubernetes.io/instance: galera" -f /root/value-mariadb.yaml
+  delegate_to: "{{k8s_vm_prefix}}-1"
+  become: yes
+
+- pause:
+    minutes: 10

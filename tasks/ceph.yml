@@ -1,0 +1,38 @@
+- name:  Copy site.yml.sample to site.yml
+  shell: |
+        cp /opt/ceph-ansible/site.yml.sample /opt/ceph-ansible/site.yml
+
+- name: Update vagrant_variables.yml file
+  template:
+    src: "vagrant_variables.yml.j2"
+    dest: "/opt/ceph-ansible/vagrant_variables.yml"
+
+- name: Update group_vars/all.yml file
+  template:
+    src: "ceph_all_group_vars.j2"
+    dest: "/opt/ceph-ansible/group_vars/all.yml"
+
+- block:
+    - name:  Run Vagrant Up command
+      shell: |
+            cd /opt/ceph-ansible && vagrant up --provision
+      async: 1800
+      poll: 10
+
+  rescue:
+    - include: "email.yml"
+      vars:
+         message: "You have encountered an error in Creating Ceph Cluster"
+
+- set_fact:
+    hosts_content: "{{ lookup('file', '/opt/ceph-ansible/.vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory') }}"
+
+- blockinfile:
+    dest: '{{ inventory_location }}'
+    content: '{{ hosts_content }}'
+    state: present
+
+- meta: refresh_inventory
+
+- pause:
+    minutes: 1

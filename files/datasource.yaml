@@ -1,0 +1,8 @@
+datasources:
+  - name: prometheus
+    url: http://prometheus-kube-prometheus-prometheus:9090
+    type: prometheus
+    access: server
+    editable: true
+    orgId: 1
+    basicAuth: false
