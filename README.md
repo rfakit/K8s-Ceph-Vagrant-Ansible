@@ -117,12 +117,12 @@ Some Customization can be done inside the other 2 directories.
 To start Installation first we clone the repo to proper location and follow the instruction,
 ```bash
   cd /opt
-  git clone
+  git clone https://github.com/rfakit/K8s-Ceph-Vagrant-Ansible
 ```
 For start deploying the stacks we use the bellow command.
  ```bash
-  cd /opt/asd/
-  ansible-playbook -i test/inventory test/test.yaml
+  cd /opt/K8s-Ceph-Vagrant-Ansible/
+  ansible-playbook -i tests/inventory tests/test.yaml
 ```
 Wait Until the Installation will be finished.
 
@@ -151,5 +151,5 @@ Contributions are always welcome!
 Feel free to fork it.
 ## License
 
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](#)
 
