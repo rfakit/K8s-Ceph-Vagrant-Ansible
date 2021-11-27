@@ -1,3 +1,9 @@
+- name: Create k8s cache dir
+  file:
+    path: "$HOME/kubespray_cache/"
+    state: directory
+    mode: '0755'
+   
 - name: Create inv dir for deploying k8s
   file:
     path: "/opt/k8s/kubespray/{{ k8s_inventory_location }}"
