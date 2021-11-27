@@ -46,6 +46,12 @@ the only module that we are gonna use within `community.general` is `mail`, We u
   ansible-galaxy collection install community.general
 ```
 
+make sure that u disable host key check in ansible by the bellow command
+
+```bash
+  export ANSIBLE_HOST_KEY_CHECKING=False
+
+```
 
 
 ## Documentation
