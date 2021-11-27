@@ -39,7 +39,7 @@
 
 - name: Install Mariadb helm
   shell: |
-     helm install galera bitnami/mariadb-galera --set metrics.serviceMonitor.selector="app.kubernetes.io/instance: galera" -f /root/value-mariadb.yaml
+     helm install galera bitnami/mariadb-galera -f /root/value-mariadb.yaml
   delegate_to: "{{k8s_vm_prefix}}-1"
   become: yes
 
