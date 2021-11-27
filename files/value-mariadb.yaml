@@ -546,7 +546,7 @@ persistence:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  storageClass: "ceph-rbd"
+  storageClass: ""
   ## @param persistence.annotations Persistent Volume Claim annotations
   ##
   annotations: {}
@@ -556,7 +556,7 @@ persistence:
     - ReadWriteOnce
   ## @param persistence.size Persistent Volume Size
   ##
-  size: 5Gi
+  size: 8Gi
 ## @param priorityClassName Priority Class Name for Statefulset
 ##
 priorityClassName: ""
@@ -687,7 +687,7 @@ podDisruptionBudget:
 metrics:
   ## @param metrics.enabled Start a side-car prometheus exporter
   ##
-  enabled: true
+  enabled: false
   ## Bitnami MySQL Prometheus exporter image
   ## ref: https://hub.docker.com/r/bitnami/mysqld-exporter/tags/
   ## @param metrics.image.registry MariaDB Prometheus exporter image registry
@@ -751,7 +751,7 @@ metrics:
   serviceMonitor:
     ## @param metrics.serviceMonitor.enabled if `true`, creates a Prometheus Operator ServiceMonitor (also requires `metrics.enabled` to be `true`)
     ##
-    enabled: true
+    enabled: false
     ## @param metrics.serviceMonitor.namespace Optional namespace which Prometheus is running in
     ##
     namespace: ""
@@ -760,13 +760,13 @@ metrics:
     ## e.g:
     ## interval: 10s
     ##
-    interval: "10s"
+    interval: ""
     ## @param metrics.serviceMonitor.scrapeTimeout Timeout after which the scrape is ended
     ## ref: https://github.com/coreos/prometheus-operator/blob/master/Documentation/api.md#endpoint
     ## e.g:
     ## scrapeTimeout: 10s
     ##
-    scrapeTimeout: "10s"
+    scrapeTimeout: ""
     ## @param metrics.serviceMonitor.selector [object] ServiceMonitor selector labels
     ## Default to kube-prometheus install (CoreOS recommended), but should be set according to Prometheus install
     ## ref: https://github.com/bitnami/charts/tree/master/bitnami/prometheus-operator#prometheus-configuration
@@ -774,9 +774,6 @@ metrics:
     selector:
       app.kubernetes.io/instance: galera
       app.kubernetes.io/name: mariadb-galera
-      # app.kubernetes.io/instance: prometheus
-      # app.kubernetes.io/name: mariadb-exporter
-
     ## @param metrics.serviceMonitor.relabelings RelabelConfigs to apply to samples before scraping
     ## ref: https://github.com/coreos/prometheus-operator/blob/master/Documentation/api.md#relabelconfig
     ## Value is evalued as a template
